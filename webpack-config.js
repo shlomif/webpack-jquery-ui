@@ -8,7 +8,7 @@ module.exports = {
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                             include:/./,
+                             include:/\.js$/,
                              terserOptions: {
                                  output: {
                                      comments: false,
@@ -25,6 +25,7 @@ module.exports = {
         path: './dist',
         filename: 'tot.js'
     },
+    /*
     module: {
         loaders: [
             {
@@ -37,13 +38,15 @@ module.exports = {
             },
         ]
     },
+    */
     mode: 'production',
     plugins: [
         new Clean(['dist']),
         new ExtractTextPlugin("app.[hash].css"),
+        /*
         new HtmlWebpackPlugin({
                               filename: 'index.html',
                               title: 'jQuery UI Autocomplete demo, built with webpack'
-        })
+        })*/
     ]
 };
