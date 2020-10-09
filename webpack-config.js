@@ -4,14 +4,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const terser_instance = new TerserPlugin({
-                             include:/\.js$/,
-                             terserOptions: {
-                                 output: {
-                                     comments: false,
-                                 },
-                             },
-                             extractComments: false,
-            });
+                                         include:/\.js$/,
+                                         terserOptions: {
+                                             output: {
+                                                 comments: false,
+                                             },
+                                         },
+                                         extractComments: false,
+});
 
 
 
@@ -29,7 +29,8 @@ module.exports = {
         main: './index.js'
     },
     output: {
-        path: './dist',
+        // path: './dist',
+        path: '/home/shlomif/Download/unpack/games/freecell/webpack-jquery-ui/dist/',
         filename: 'tot.js'
     },
     /*
@@ -46,6 +47,26 @@ module.exports = {
         ]
     },
     */
+    module: {
+        rules: [
+
+            { test: /\\.css$/, use: [
+                // [style-loader](/loaders/style-loader)
+                { loader: 'style-loader' },
+                // [css-loader](/loaders/css-loader)
+                {
+                    loader: 'css-loader',
+                    options: {
+                        modules: true
+                    }
+                },
+                // [sass-loader](/loaders/sass-loader)
+                { loader: 'sass-loader' }
+            ]},
+            { test: /\\.ts$/, use: 'ts-loader' }
+        ]
+    },
+
     mode: 'production',
     plugins: [
         new Clean(['dist']),
