@@ -10,5 +10,5 @@ var tabs = require('jquery-ui/ui/widgets/tabs');
 
 // $('<h1>Welcome to the programming languages quiz</h1>').appendTo('body');
 new tabs({
-         source: ['javascript', 'css', 'c', 'objectivec']
+         // source: ['javascript', 'css', 'c', 'objectivec']
 }).element.appendTo('body').focus();
