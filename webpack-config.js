@@ -82,7 +82,7 @@ module.exports = {
     mode: 'production',
     plugins: [
         new Clean(['dist']),
-        terser_instance,
+        // terser_instance,
         // new ExtractTextPlugin("app.[hash].css"),
         /*
         new HtmlWebpackPlugin({
