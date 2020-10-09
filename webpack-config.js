@@ -5,14 +5,14 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 let real_terser_instance = new TerserPlugin({
-                                         include:/\.js$/,
-                                         test:/\.js$/,
-                                         terserOptions: {
-                                             output: {
-                                                 comments: false,
-                                             },
-                                         },
-                                         extractComments: false,
+                                            // include:/\.js$/,
+                                            test:/\.js$/,
+                                            terserOptions: {
+                                                output: {
+                                                    comments: false,
+                                                },
+                                            },
+                                            extractComments: false,
 });
 
 console.log("real_terser_instance = ", real_terser_instance);
