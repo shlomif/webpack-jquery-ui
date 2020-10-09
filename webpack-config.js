@@ -4,8 +4,9 @@ const path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-const terser_instance = new TerserPlugin({
-                                         include:/\\.js$/,
+let real_terser_instance = new TerserPlugin({
+                                         include:/\.js$/,
+                                         test:/\.js$/,
                                          terserOptions: {
                                              output: {
                                                  comments: false,
@@ -14,7 +15,16 @@ const terser_instance = new TerserPlugin({
                                          extractComments: false,
 });
 
+console.log("real_terser_instance = ", real_terser_instance);
+let terser_instance = (...args)=>{
+    console.log("terser_instance called" );
+    let ret = real_terser_instance(...args);
+    console.log("after terser_instance called" );
+    return ret;
 
+    throw "pinnnnnnnnnnnkkkkkkkkkk";
+};
+terser_instance = real_terser_instance;
 
 
 
