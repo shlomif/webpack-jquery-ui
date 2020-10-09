@@ -7,7 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 let real_terser_instance = new TerserPlugin({
                                             // include:/\.js$/,
                                             test:/\.js$/,
-                                            exclude: /\/jquery-ui\//,
+                                            // exclude: /\/jquery\//,
                                             terserOptions: {
                                                 output: {
                                                     comments: false,
@@ -39,6 +39,9 @@ module.exports = {
     },
     entry: {
         main: './index.js'
+    },
+    externals: {
+        jquery: 'jquery',
     },
     output: {
         // path: './dist',
