@@ -4,7 +4,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
 const terser_instance = new TerserPlugin({
-                                         include:/\.js$/,
+                                         include:/\\.js$/,
                                          terserOptions: {
                                              output: {
                                                  comments: false,
