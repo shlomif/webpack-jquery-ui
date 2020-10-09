@@ -7,6 +7,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 let real_terser_instance = new TerserPlugin({
                                             // include:/\.js$/,
                                             test:/\.js$/,
+                                            exclude: /\/jquery-ui\//,
                                             terserOptions: {
                                                 output: {
                                                     comments: false,
@@ -89,5 +90,8 @@ module.exports = {
                               filename: 'index.html',
                               title: 'jQuery UI Autocomplete demo, built with webpack'
         })*/
-    ]
+    ],
+    resolve: {
+        modules: ['./js/jquery-ui/foo', 'node_modules', ],
+    },
 };
