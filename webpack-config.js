@@ -3,11 +3,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = {
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserPlugin({
+const terser_instance = new TerserPlugin({
                              include:/\.js$/,
                              terserOptions: {
                                  output: {
@@ -15,7 +11,18 @@ module.exports = {
                                  },
                              },
                              extractComments: false,
-            }),
+            });
+
+
+
+
+
+
+module.exports = {
+    optimization: {
+        minimize: true,
+        minimizer: [
+            terser_instance,
         ],
     },
     entry: {
@@ -42,7 +49,8 @@ module.exports = {
     mode: 'production',
     plugins: [
         new Clean(['dist']),
-        new ExtractTextPlugin("app.[hash].css"),
+        terser_instance,
+        // new ExtractTextPlugin("app.[hash].css"),
         /*
         new HtmlWebpackPlugin({
                               filename: 'index.html',
