@@ -1,4 +1,5 @@
 var Clean = require('clean-webpack-plugin');
+const path = require('path');
 // var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
@@ -30,7 +31,8 @@ module.exports = {
     },
     output: {
         // path: './dist',
-        path: '/home/shlomif/Download/unpack/games/freecell/webpack-jquery-ui/dist/',
+        path: path.resolve(__dirname, 'dist'),
+        // path: '/home/shlomif/Download/unpack/games/freecell/webpack-jquery-ui/dist/',
         filename: 'tot.js'
     },
     /*
