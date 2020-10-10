@@ -32,7 +32,7 @@ terser_instance = real_terser_instance;
 
 module.exports = {
     optimization: {
-        minimize: true,
+        minimize: false,
         minimizer: [
             terser_instance,
         ],
