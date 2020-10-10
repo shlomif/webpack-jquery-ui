@@ -31,7 +31,7 @@ terser_instance = real_terser_instance;
 
 module.exports = {
     optimization: {
-        minimize: true,
+        minimize: false,
         minimizer: [
             terser_instance,
         ],
@@ -44,6 +44,10 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         // path: '/home/shlomif/Download/unpack/games/freecell/webpack-jquery-ui/dist/',
         filename: 'tot.js'
+    },
+    externals: {
+        '$': 'jQuery',
+        jquery: 'jQuery',
     },
     /*
     module: {
