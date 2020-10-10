@@ -41,7 +41,7 @@ module.exports = {
         main: './index.js'
     },
     externals: {
-        jquery: 'jquery',
+        jquery: 'jQuery',
     },
     output: {
         // path: './dist',
